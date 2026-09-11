@@ -20,6 +20,7 @@ let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
   humanChoice = humanChoice.toLowerCase().trim();
+  ß;
   if (humanChoice === computerChoice) {
     return "Round tie";
   }
