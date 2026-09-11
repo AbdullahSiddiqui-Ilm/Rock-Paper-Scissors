@@ -3,11 +3,11 @@ const prompt = require("prompt-sync")({ sigint: true });
 function getComputerChoice() {
   let choice = Math.random();
   if (choice <= 0.33) {
-    return "Rock";
+    return "rock";
   } else if (choice < 0.66) {
-    return "Scissors";
+    return "scissors";
   } else {
-    return "Paper";
+    return "paper";
   }
 }
 function getHumanChoice() {
@@ -17,3 +17,20 @@ function getHumanChoice() {
 
 let humanScore = 0;
 let computerScore = 0;
+
+function playRound(humanChoice, computerChoice) {
+  humanChoice = humanChoice.toLowerCase().trim();
+  if (humanChoice === computerChoice) {
+    return "Round tie";
+  }
+
+  if (
+    (humanChoice === "rock" && computerChoice === "scissors") ||
+    (humanChoice === "paper" && computerChoice === "rock") ||
+    (humanChoice === "scissors" && computerChoice === "paper")
+  ) {
+    humanScore++;
+  } else {
+    computerScore++;
+  }
+}
