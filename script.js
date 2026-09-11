@@ -20,7 +20,7 @@ let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
   humanChoice = humanChoice.toLowerCase().trim();
-  ß;
+
   if (humanChoice === computerChoice) {
     return "Round tie";
   }
@@ -35,3 +35,15 @@ function playRound(humanChoice, computerChoice) {
     computerScore++;
   }
 }
+
+const humanSelect = getHumanChoice();
+const computerSelect = getComputerChoice();
+
+function playGame() {
+  for (let i = 0; i < 4; i++) {
+    playRound(getHumanChoice(), getComputerChoice());
+  }
+  return `human: ${humanScore}, computer: ${computerScore}`;
+}
+
+console.log(playGame());
