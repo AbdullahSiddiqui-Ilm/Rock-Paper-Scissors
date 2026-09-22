@@ -10,10 +10,6 @@ function getComputerChoice() {
     return "paper";
   }
 }
-function getHumanChoice() {
-  let choice = prompt("Please enter a choice from [Rock, Paper, Scissors]: ");
-  return choice;
-}
 
 let humanScore = 0;
 let computerScore = 0;
@@ -39,11 +35,16 @@ function playRound(humanChoice, computerChoice) {
 const humanSelect = getHumanChoice();
 const computerSelect = getComputerChoice();
 
-function playGame() {
-  for (let i = 0; i < 4; i++) {
-    playRound(getHumanChoice(), getComputerChoice());
-  }
-  return `human: ${humanScore}, computer: ${computerScore}`;
-}
+const rockButton = document.querySelector("#rock-button");
 
-console.log(playGame());
+rockButton.addEventListener("click", () => {
+  playRound("rock", getComputerChoice);
+});
+
+const paperButton = document.querySelector("#paper-button");
+paperButton.addEventListener("click", () =>
+  playRound("paper", getComputerChoice),
+);
+
+const scissorsButton = document.querySelector("#scissors-button");
+scissorsButton.addEventListener("click");
