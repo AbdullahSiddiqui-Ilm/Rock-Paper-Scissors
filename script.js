@@ -30,21 +30,26 @@ function playRound(humanChoice, computerChoice) {
     computerScore++;
     return computerScore;
   }
-  return;
 }
 
-const rockButton = document.querySelector("#rock-button");
-rockButton.addEventListener("click", (e) => {
-  playRound("rock", getComputerChoice());
-  const humanScoreDiv = document.querySelector("#human-score");
-  humanScoreDiv.textContent = `${humanScore}`;
+const buttons = document.querySelectorAll("button");
 
-  const computerScoreDiv = document.querySelector("#computer-score");
-  computerScoreDiv.textContent = `${computerScore}`;
-});
+for (const button of buttons) {
+  button.addEventListener("click", (e) => {
+    console.log(e.target.value);
+    const choice = e.target.value;
+    playRound(choice, getComputerChoice());
+    const humanScoreDiv = document.querySelector("#human-score");
+    humanScoreDiv.textContent = `${humanScore}`;
 
-const paperButton = document.querySelector("#paper-button");
-paperButton.addEventListener("click", () => playRound("paper", computerSelect));
+    const computerScoreDiv = document.querySelector("#computer-score");
+    computerScoreDiv.textContent = `${computerScore}`;
 
-const scissorsButton = document.querySelector("#scissors-button");
-scissorsButton.addEventListener("click");
+    let winner = document.querySelector("h1");
+    if (humanScore === 5) {
+      winner.textContent = `Winner is Human!!`;
+    } else if (computerScore === 5) {
+      winner.textContent = "Winner is Computer";
+    }
+  });
+}
