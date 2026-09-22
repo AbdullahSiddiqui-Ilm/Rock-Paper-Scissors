@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+#parent-div {
+  height: 400px;
+  width: 500px;
+  padding-top: 100px;
+  display: flex;
+}
+
+.child-div {
+  flex: 1;
+  background-color: bisque;
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

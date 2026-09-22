@@ -1,5 +1,3 @@
-const prompt = require("prompt-sync")({ sigint: true });
-
 function getComputerChoice() {
   let choice = Math.random();
   if (choice <= 0.33) {
@@ -27,24 +25,28 @@ function playRound(humanChoice, computerChoice) {
     (humanChoice === "scissors" && computerChoice === "paper")
   ) {
     humanScore++;
+    return humanScore;
   } else {
     computerScore++;
+    return computerScore;
   }
+  return;
 }
-
-const humanSelect = getHumanChoice();
-const computerSelect = getComputerChoice();
+let computerSelect = getComputerChoice();
 
 const rockButton = document.querySelector("#rock-button");
 
-rockButton.addEventListener("click", () => {
-  playRound("rock", getComputerChoice);
+rockButton.addEventListener("click", (e) => {
+  playRound("rock", getComputerChoice());
+  const humanScoreDiv = document.querySelector("#human-score");
+  humanScoreDiv.textContent = `${humanScore}`;
+
+  const computerScoreDiv = document.querySelector("#computer-score");
+  computerScoreDiv.textContent = `${computerScore}`;
 });
 
 const paperButton = document.querySelector("#paper-button");
-paperButton.addEventListener("click", () =>
-  playRound("paper", getComputerChoice),
-);
+paperButton.addEventListener("click", () => playRound("paper", computerSelect));
 
 const scissorsButton = document.querySelector("#scissors-button");
 scissorsButton.addEventListener("click");
