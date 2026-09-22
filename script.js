@@ -32,10 +32,8 @@ function playRound(humanChoice, computerChoice) {
   }
   return;
 }
-let computerSelect = getComputerChoice();
 
 const rockButton = document.querySelector("#rock-button");
-
 rockButton.addEventListener("click", (e) => {
   playRound("rock", getComputerChoice());
   const humanScoreDiv = document.querySelector("#human-score");
